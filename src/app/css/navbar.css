@@ -1,0 +1,35 @@
+.navContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 30px;
+    background-color: rgb(8, 32, 43);
+    height: 80px;
+}
+
+.navElements ul{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.navElements ul li{
+    transition: 0.3s;
+}
+
+.navElements ul li:not(:last-child) {
+    margin-right: 60px;
+  }
+
+
+.navElements ul li:hover{
+    color: rgb(212, 177, 17);
+
+}
+
+@media only screen and (max-width: 700px) {
+    .navElements {
+        display: none;
+    }
+}
