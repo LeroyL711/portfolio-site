@@ -1,35 +1,92 @@
-.navContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 0 30px;
-    background-color: rgb(8, 32, 43);
-    height: 80px;
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background-color: rgb(8, 32, 43);
+  height: 80px;
+  width: 100%;
 }
 
-.navElements ul{
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
+.navLogo {
+  font-size: 2rem;
+  margin-left: 30px;
 }
 
-.navElements ul li{
-    transition: 0.3s;
+.navMenu ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  transition: all 0.3s;
 }
 
-.navElements ul li:not(:last-child) {
-    margin-right: 60px;
-  }
+.navMenu ul li {
+  margin: 0 1rem;
 
+}
 
-.navElements ul li:hover{
-    color: rgb(212, 177, 17);
+/* Stacks navIcon and label*/
+.navMenu ul li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.navMenu ul li:hover {
+  color: rgb(212, 177, 17);
+}
+
+.navIcons {
+  display: block;
+  text-align: center;
+}
+
+.hamburger {
+  /* removes default border on button element */
+  border: 0;
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  position: absolute;
+  right: 25px;
+  display: none;
 }
 
 @media only screen and (max-width: 700px) {
-    .navElements {
-        display: none;
-    }
+  .navMenu ul{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    border-top: solid 1px black;
+  }
+
+  .navMenu.expanded ul{
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .navMenu ul li {
+    background-color: black;
+    margin: 0;
+  }
+
+  .navMenu ul li a {
+    padding: 1.5rem;
+    align-items: flex-end;
+    border-top: 1px solid #adadad;
+  }
+
+  .navIcons {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
 }

@@ -1,32 +1,53 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import "../css/navbar.css"
-
-
+import "../css/navbar.css";
+import HomeIcon from "@mui/icons-material/HomeOutlined";
+import InfoIcon from "@mui/icons-material/InfoOutlined";
+import EmailIcon from "@mui/icons-material/EmailOutlined";
+import WorkIcon from "@mui/icons-material/WorkOutlineOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 export default function Navbar() {
-
-  const [active, setActive] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <nav>
       <div className="navContainer">
         <div className="navLogo">
-          <h1>Leroy Lau</h1>
+          <Link href="/">Leroy Lau</Link>
         </div>
-        <div className="navElements">
+        <button
+          className="hamburger"
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          {isExpanded ? (
+            <CloseIcon fontSize="large" />
+          ) : (
+            <MenuIcon fontSize="large" />
+          )}
+        </button>
+        <div className={isExpanded ? `navMenu expanded` : `navMenu`}>
           <ul>
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/" onClick={() => setIsExpanded(!isExpanded)}>
+                <HomeIcon className="navIcons" /> Home
+              </Link>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/about" onClick={() => setIsExpanded(!isExpanded)}>
+                <InfoIcon className="navIcons" /> About
+              </Link>
             </li>
             <li>
-              <Link href="/projects">Projects</Link>
+              <Link href="/projects" onClick={() => setIsExpanded(!isExpanded)}>
+                <WorkIcon className="navIcons" /> Projects
+              </Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact" onClick={() => setIsExpanded(!isExpanded)}>
+                <EmailIcon className="navIcons" /> Contact
+              </Link>
             </li>
           </ul>
         </div>
