@@ -27,6 +27,33 @@ export default function Navbar() {
             <MenuIcon fontSize="large" />
           )}
         </button>
+        
+        {/* Separated desktop and mobile navs due to content flash from opacity changes and transition */}
+        <div className={`desktopNav`}>
+          <ul>
+            <li>
+              <Link href="/">
+                <HomeIcon className="navIcons" /> Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <InfoIcon className="navIcons" /> About
+              </Link>
+            </li>
+            <li>
+              <Link href="/projects">
+                <WorkIcon className="navIcons" /> Projects
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact">
+                <EmailIcon className="navIcons" /> Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+
         <div className={isExpanded ? `navMenu expanded` : `navMenu`}>
           <ul>
             <li>
@@ -51,6 +78,7 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
+        
       </div>
     </nav>
   );
